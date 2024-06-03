@@ -29,11 +29,6 @@ def fetch_filtered_data(visa_code):
         
         
         if len(row) > 0 and contains_all_strings(row[2], visa_code):
-            print("==================")
-            print(row[2])
-            print(visa_code)
-            print("==================")
-
             data.append(row)
     
     
