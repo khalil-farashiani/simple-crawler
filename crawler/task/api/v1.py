@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import List
-from ..celery.service import fetch_filtered_data
+from ..celery.task import fetch_filtered_data
 
 router = APIRouter()
 

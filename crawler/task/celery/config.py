@@ -1,8 +1,14 @@
 from celery import Celery
 from app.core.config import settings
 
-celery_app = Celery(
-    "worker",
-    broker=settings.CELERY_BROKER,
-    backend=settings.CELERY_BACKEND,
-)
+
+def make_celery(app_name=__name__):
+    celery_app =  Celery(
+        app_name,
+        broker=settings.CELERY_BROKER,
+        backend=settings.CELERY_BACKEND,
+    )
+    return celery_app
+
+
+celery_app = make_celery("worker")
